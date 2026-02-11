@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ML Diamond Shop</title>
+<style>
+body{
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+.container{
+    width:350px;
+    margin:auto;
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    margin-top:50px;
+}
+input, select{
+    width:90%;
+    padding:8px;
+    margin:8px;
+    border-radius:5px;
+    border:none;
+}
+button{
+    background:#f59e0b;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+.price{
+    font-size:16px;
+    margin-top:10px;
+    color:#22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>ML Diamond Order</h2>
+
+<input type="text" placeholder="Enter ML ID">
+<input type="text" placeholder="Enter Server ID">
+
+<select id="diamond" onchange="calculatePrice()">
+<option value="0">Select Diamond</option>
+<option value="86">86 Diamond</option>
+<option value="172">172 Diamond</option>
+<option value="257">257 Diamond</option>
+<option value="514">514 Diamond</option>
+</select>
+
+<div class="price" id="price">
+Price: 0 MMK / 0 THB
+</div>
+
+<input type="text" placeholder="Your Payment Account">
+
+<button>Order Now</button>
+
+</div>
+
+<script>
+function calculatePrice(){
+    var dia = document.getElementById("diamond").value;
+
+    var mmkRate = 30;   // 1 Diamond = 30 MMK (Change this)
+    var thbRate = 0.75; // 1 Diamond = 0.75 THB (Change this)
+
+    var totalMMK = dia * mmkRate;
+    var totalTHB = dia * thbRate;
+
+    document.getElementById("price").innerHTML =
+        "Price: " + totalMMK + " MMK / " + totalTHB + " THB";
+}
+</script>
+
+</body>
+</html>
